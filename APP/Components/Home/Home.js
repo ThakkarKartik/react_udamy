@@ -1,18 +1,23 @@
 import React from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import * as HomeAction from './action'
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-export default class Home extends React.Component {
+class Home extends React.Component {
     constructor(props) {
         super(props)
     }
-
+    componentDidMount() {
+        this.props.moduleName = "home";
+      }
     render() {
         return (
                 <View>
                     <Text>
                         Welcome to Home Screen
                         </Text>
-                        <TouchableOpacity onPress = {()=>{ this.props.navigation.navigate('Login') }} >
+                        <TouchableOpacity onPress = {()=>{ this.props.onPress() }} >
         <Text> 
           Login
         </Text> 
@@ -22,3 +27,14 @@ export default class Home extends React.Component {
         )
     }
 }
+const mapStateToProps = state => {
+    const currentState = state.home;
+    return {
+      currentState
+    };
+  };
+  export default connect(
+    mapStateToProps,
+    dispatch => bindActionCreators(HomeAction, dispatch)
+  )(Home);
+  

@@ -1,0 +1,1 @@
+export const VIEW_LOGIN = "VIEW_LOGIN"

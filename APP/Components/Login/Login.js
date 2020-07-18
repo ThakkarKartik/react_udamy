@@ -1,24 +1,38 @@
 import React from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import * as LoginAction from './action'
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-export default class Login extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props)
     }
 
     render() {
         return (
-            <View>
-                <Text>
-                    Welcome to Home Screen
-                        </Text>
-                <TouchableOpacity onPress={() => { this.props.navigation.navigate('Home') }} >
+                <View>
                     <Text>
-                        Home
-        </Text>
-                </TouchableOpacity>
-
-            </View>
+                        Welcome to Login Screen
+                        </Text>
+                        <TouchableOpacity onPress = {()=>{ this.props.navigation.navigate('Home') }} >
+        <Text> 
+          Home
+        </Text> 
+        </TouchableOpacity>
+      
+                </View>
         )
     }
 }
+const mapStateToProps = state => {
+    const currentState = state.login;
+    return {
+      currentState,
+    };
+  };
+  export default connect(
+    mapStateToProps,
+    dispatch => bindActionCreators(LoginAction, dispatch),
+  )(Login);
+  
