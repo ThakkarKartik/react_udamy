@@ -1,23 +1,18 @@
-//#region Imports
-import {Alert} from 'react-native';
-//#region React native dependencies
-import * as types from './actionTypes.js';
-//#endregion
-//#region Navigation
+//import * as types from './ActionTypes'
+//import Store from '../../Store'
 import {NavigationActions, StackActions} from 'react-navigation';
-//#endregion
-//#endregion
+//import { Home } from '../Home/Home'
+import { HOME } from '../../Navigation/RoutePaths'
 
-//SELECT ACTION
-export const onPress = data => {
-  return dispatch => {
-    onPressDispatch(dispatch, data);
-  };
-};
-
-const onPressDispatch = (dispatch, data) => {
-  dispatch({
-    type: types.VIEW_HOME,
-    title: data,
-  });
+export const onPress = () => {
+    return dispatch => {
+        dispatch(
+          NavigationActions.navigate({
+            routeName:HOME,
+            // params: {
+            //   passValue: value,
+            // },
+          }),
+        );
+      };
 };
