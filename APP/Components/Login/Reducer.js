@@ -2,6 +2,7 @@ import * as types from './ActionTypes'
 
 const initiState = {
   title: 'Login',
+  
 };
 
 const LoginReducer = (state = initiState, action) => {
@@ -10,6 +11,10 @@ const LoginReducer = (state = initiState, action) => {
       return {
         ...state,
       };
+      case types.LOGIN_SUCCESS:
+        return{
+            ...state,
+        };
     default:
       return state;
   }

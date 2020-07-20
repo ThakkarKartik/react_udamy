@@ -1,5 +1,5 @@
 import React from 'react'
-import {TextInput, View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import {Button, TextInput, View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import * as HomeAction from './Action'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -18,13 +18,16 @@ class Login extends React.Component {
         <Text style={styles.Text}>
           Welcome to Login Screen
         </Text>
-        <TextInput nativeID = "txtUname"
+        <TextInput nativeID="txtEmail"
           style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
         />
-        <TextInput nativeID = "txtPass"
+        <TextInput nativeID="txtPass"
           style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
         />
-
+        <Button 
+        title = "SignIn"
+        onPress = {this.props.LoginPress()}
+        />
       </View>
     )
   }

@@ -3,7 +3,8 @@
 import {NavigationActions, StackActions} from 'react-navigation';
 //import { Home } from '../Home/Home'
 import { HOME } from '../../Navigation/RoutePaths'
-
+import { types } from '@babel/core';
+import * as actionTypes from './ActionTypes'
 export const onPress = () => {
     return dispatch => {
         dispatch(
@@ -16,3 +17,6 @@ export const onPress = () => {
         );
       };
 };
+export const LoginPress = () =>{
+  return true;
+}
