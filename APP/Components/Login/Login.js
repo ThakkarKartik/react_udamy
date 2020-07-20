@@ -1,40 +1,41 @@
 import React from 'react'
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import {TextInput, View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import * as HomeAction from './Action'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import * as styles from './Styles'
 
 class Login extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-    componentDidMount() {
-        this.props.moduleName = "login";
-      }
-    render() {
-        return (
-                <View>
-                    <Text>
-                        Welcome to Home Screen
-                        </Text>
-                        <TouchableOpacity onPress = {()=>{ this.props.onPress() }} >
-        <Text> 
-          Home
-        </Text> 
-        </TouchableOpacity>
-      
-                </View>
-        )
-    }
+  constructor(props) {
+    super(props)
+  }
+  componentDidMount() {
+    this.props.moduleName = "login";
+  }
+  render() {
+    return (
+      <View>
+        <Text style={styles.Text}>
+          Welcome to Login Screen
+        </Text>
+        <TextInput nativeID = "txtUname"
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+        />
+        <TextInput nativeID = "txtPass"
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+        />
+
+      </View>
+    )
+  }
 }
 const mapStateToProps = state => {
-    const currentState = state.login;
-    return {
-      currentState
-    };
+  const currentState = state.login;
+  return {
+    currentState
   };
-  export default connect(
-    mapStateToProps,
-    dispatch => bindActionCreators(HomeAction, dispatch)
-  )(Login);
-  
+};
+export default connect(
+  mapStateToProps,
+  dispatch => bindActionCreators(HomeAction, dispatch)
+)(Login);
