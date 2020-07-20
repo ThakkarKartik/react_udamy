@@ -2,6 +2,8 @@ import * as types from './ActionTypes'
 
 const initiState = {
   title: 'Login',
+  userid: '',
+  token: '',
   
 };
 
@@ -11,9 +13,11 @@ const LoginReducer = (state = initiState, action) => {
       return {
         ...state,
       };
-      case types.LOGIN_SUCCESS:
+      case types.SET_LOGIN_STATE:
         return{
             ...state,
+            ...action.payloads,
+            isLoggedIn: true,
         };
     default:
       return state;

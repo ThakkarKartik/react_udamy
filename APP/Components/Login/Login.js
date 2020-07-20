@@ -1,14 +1,17 @@
 import React from 'react'
 import {Button, TextInput, View, StyleSheet, Text, TouchableOpacity } from 'react-native'
-import * as HomeAction from './Action'
+import * as LoginAction from './Action'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as styles from './Styles'
+const [username, setUsername] = useState('');
+const [password, setPassword] = useState('');
 
 class Login extends React.Component {
   constructor(props) {
     super(props)
   }
+  
   componentDidMount() {
     this.props.moduleName = "login";
   }
@@ -18,15 +21,20 @@ class Login extends React.Component {
         <Text style={styles.Text}>
           Welcome to Login Screen
         </Text>
-        <TextInput nativeID="txtEmail"
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+        <TextInput 
+          style={styles.TextInput}
+          placeholder = "Enter Email"
+          onChangeText={(text) => setUsername(text)}
+          //value = {this.setState(state.uname)}
         />
-        <TextInput nativeID="txtPass"
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+        <TextInput 
+          style={styles.TextInput}
+          placeholder = "Enter Password"
+          onChangeText={(text) => setPassword(text)}
         />
         <Button 
         title = "SignIn"
-        onPress = {this.props.LoginPress()}
+        onPress = {dispatch(this.props.LoginPress(username,password))}
         />
       </View>
     )

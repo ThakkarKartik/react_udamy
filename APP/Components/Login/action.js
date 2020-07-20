@@ -17,6 +17,6 @@ export const onPress = () => {
         );
       };
 };
-export const LoginPress = () =>{
-  return true;
+export const LoginPress = (id, pass) =>{
+  //return true;
 }
