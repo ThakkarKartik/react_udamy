@@ -4,8 +4,8 @@ import * as LoginAction from './Action'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as styles from './Styles'
-// const [username, setUsername] = useState('');
-// const [password, setPassword] = useState('');
+//  const [username, setUsername] = useState('');
+//  const [password, setPassword] = useState('');
 
 class Login extends React.Component {
   constructor(props) {
@@ -14,8 +14,6 @@ class Login extends React.Component {
   
   componentDidMount() {
     this.props.moduleName = "login";
-    this.props.state.username = '';
-    this.props.state.password = '';
   }
   render() {
     return (
@@ -26,17 +24,17 @@ class Login extends React.Component {
         <TextInput 
           style={styles.TextInput}
           placeholder = "Enter Email"
-          onChangeText={(text) => setUsername(text)}
+          onChangeText={(text) => {this.props.uname= text}}
           //value = {this.setState(state.uname)}
         />
         <TextInput 
           style={styles.TextInput}
           placeholder = "Enter Password"
-          onChangeText={(text) => setPassword(text)}
+          onChangeText={(text) => {this.props.pass= text}}
         />
         <Button 
         title = "SignIn"
-        onPress = {dispatch(this.props.LoginPress(username,password))}
+        onPress = {() => this.props.LoginPress(this.props)}
         />
       </View>
     )
@@ -50,5 +48,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  dispatch => bindActionCreators(HomeAction, dispatch)
+  dispatch => bindActionCreators(LoginAction, dispatch)
 )(Login);

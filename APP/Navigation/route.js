@@ -1,5 +1,6 @@
 import Home from '../Components/Home/Home'
 import Login from '../Components/Login/Login'
+import Profile from '../Components/Profile/Profile'
 
 export const Routes = {
 
@@ -19,5 +20,11 @@ export const Routes = {
         //headerTintColor: colorCodes.BLACK,
       },
     },
+    profile:{
+      screen: Profile,
+      navigationOptions: {
+        title: 'Profile'
+      }
+    }
   
   };

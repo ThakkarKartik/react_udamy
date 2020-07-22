@@ -9,20 +9,14 @@ class Home extends React.Component {
         super(props)
     }
     componentDidMount() {
-        this.props.moduleName = "home";
+        this.props.moduleName = "profile";
       }
     render() {
         return (
                 <View>
                     <Text>
-                        Welcome to Home Screen
+                        Welcome to Profile
                         </Text>
-                        <TouchableOpacity onPress = {()=>{ this.props.onPress(this.props.state)}} >
-        <Text> 
-          Login
-        </Text> 
-        </TouchableOpacity>
-      
                 </View>
         )
     }
