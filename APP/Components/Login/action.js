@@ -19,14 +19,17 @@ export const onPress = () => {
         );
       };
 };
-export const LoginPress = (id,pass) =>{
+export const LoginPress = (props) =>{
+  Alert.alert("Debug","->"+ props.uname + " - " + props.pass)
   return async dispatch =>{
-    onPressDispatch(dispatch, id);  
+    onPressDispatch(dispatch, id, pass);  
     }
 
   }
-  const onPressDispatch = (dispatch,id) =>
+  const onPressDispatch = (dispatch,id,pass) =>
   {
+    if(id=="kartik" && pass=="admin")
+    {
     dispatch(
       NavigationActions.navigate({
         routeName:PROFILE,
@@ -35,6 +38,11 @@ export const LoginPress = (id,pass) =>{
         // },
       }),
     );
+    }
+    else
+    {
+      Alert.alert("Wrong ..","=="+ id + " - " + pass);
+    }
   }
   //return true;    
 

@@ -14,6 +14,8 @@ class Login extends React.Component {
   
   componentDidMount() {
     this.props.moduleName = "login";
+    this.props.uname = "none";
+    this.props.pass = "none";
   }
   render() {
     return (
