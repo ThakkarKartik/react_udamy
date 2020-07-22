@@ -6,8 +6,8 @@ import thunk from "redux-thunk";
 //#endregion ' Framework Dependencies '
 
 //#region ' Project Dependencies '
-import homeReducer from "./Components/Home/Reducer.js"
-import LoginReducer from "./Components/Login/Reducer"
+import homeReducer from "./Components/Home/Reducers.js"
+import LoginReducer from "./Components/Login/Reducers"
 //#endregion
 
 const appReducer = navReducer => {

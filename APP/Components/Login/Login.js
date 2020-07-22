@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button, TextInput, View, StyleSheet, Text, TouchableOpacity } from 'react-native'
-import * as LoginAction from './Action'
+import * as LoginAction from './Actions'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {styles} from './Styles'
