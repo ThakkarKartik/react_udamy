@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Text, TouchableOpacity, Button } from 'react-native'
 import * as HomeAction from './Action'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import {styles} from './Styles'
 
 class Home extends React.Component {
     constructor(props) {
@@ -13,15 +14,17 @@ class Home extends React.Component {
       }
     render() {
         return (
-                <View>
-                    <Text>
+                <View style = {styles.View}>
+                    <Text style = {styles.title}>
                         Welcome to Home Screen
                         </Text>
-                        <TouchableOpacity onPress = {()=>{ this.props.onPress(this.props.state)}} >
-        <Text> 
-          Login
-        </Text> 
-        </TouchableOpacity>
+                        <TouchableOpacity 
+                        style={styles.button}
+                        onPress = {()=>{ this.props.onPress(this.props.state)}}>
+                        <Text style={styles.text}>
+                          Login Screen
+                        </Text>
+                        </TouchableOpacity>
       
                 </View>
         )

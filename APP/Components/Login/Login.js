@@ -3,7 +3,7 @@ import {Button, TextInput, View, StyleSheet, Text, TouchableOpacity } from 'reac
 import * as LoginAction from './Action'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as styles from './Styles'
+import {styles} from './Styles'
 //  const [username, setUsername] = useState('');
 //  const [password, setPassword] = useState('');
 
@@ -17,25 +17,31 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <View>
-        <Text style={styles.Text}>
+      <View styles={styles.view}>
+        <Text style={styles.title}>
           Welcome to Login Screen
         </Text>
+        <View style={styles.view}>
         <TextInput 
-          style={styles.TextInput}
+          style={styles.input}
           placeholder = "Enter Email"
           onChangeText={(text) => {this.props.uname= text}}
           //value = {this.setState(state.uname)}
         />
         <TextInput 
-          style={styles.TextInput}
+          style={styles.input}
           placeholder = "Enter Password"
           onChangeText={(text) => {this.props.pass= text}}
         />
-        <Button 
-        title = "SignIn"
+        </View>
+        <View style={styles.view}>
+        <TouchableOpacity 
+        style = {styles.button}
         onPress = {() => this.props.LoginPress(this.props)}
-        />
+        >
+            <Text style={styles.text}> Sign-in</Text>
+        </TouchableOpacity>
+        </View>
       </View>
     )
   }
