@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
-import * as HomeAction from './Action'
+import * as HomeAction from './Actions'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {styles} from './Styles'

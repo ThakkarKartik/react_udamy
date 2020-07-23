@@ -30,7 +30,7 @@ export const styles =  StyleSheet.create({
       },
       view:{
         "alignItems": "center",
-        textAlign:"center",
+        "textAlign":"center",
         "paddingTop": 31,
         "marginTop":10,
       },
@@ -38,7 +38,7 @@ export const styles =  StyleSheet.create({
         "alignItems": "center",
         "marginTop": 20,
         "width": 280,
-        padding: 10,
+        "padding": 10,
         "height": 50,
         "borderRadius": 20,
         "borderWidth": 1,

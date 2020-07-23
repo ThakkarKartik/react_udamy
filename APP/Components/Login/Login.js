@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, TextInput, View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import {Button, TextInput, View, StyleSheet, Text, TouchableOpacity, Alert } from 'react-native'
 import * as LoginAction from './Actions'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -14,8 +14,6 @@ class Login extends React.Component {
   
   componentDidMount() {
     this.props.moduleName = "login";
-    this.props.uname = "none";
-    this.props.pass = "none";
   }
   render() {
     return (
@@ -27,19 +25,25 @@ class Login extends React.Component {
         <TextInput 
           style={styles.input}
           placeholder = "Enter Email"
-          onChangeText={(text) => {this.props.uname= text}}
-          //value = {this.setState(state.uname)}
+          onChangeText={input =>
+            this.props.onTextChange(input, 'email')
+          }
+          value={this.props.currentState.email}
         />
         <TextInput 
           style={styles.input}
           placeholder = "Enter Password"
-          onChangeText={(text) => {this.props.pass= text}}
+          onChangeText={input =>
+            this.props.onTextChange(input, 'password')
+          }
+          value={this.props.currentState.password}
         />
         </View>
         <View style={styles.view}>
         <TouchableOpacity 
         style = {styles.button}
-        onPress = {() => this.props.LoginPress(this.props)}
+        onPress = {() => this.props.LoginPress(this.props.currentState.email,this.props.currentState.password )}
+        //onPress = {() => alert("Email is: " + this.props.currentState.email + " & " + "Password is: " + this.props.currentState.password)}
         >
             <Text style={styles.text}> Sign-in</Text>
         </TouchableOpacity>

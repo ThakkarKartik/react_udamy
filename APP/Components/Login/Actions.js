@@ -19,30 +19,52 @@ export const onPress = () => {
         );
       };
 };
-export const LoginPress = (props) =>{
-  Alert.alert("Debug","->"+ props.uname + " - " + props.pass)
+export const LoginPress = (email,pass) =>{
+  
+  response = CheckLogin(email, pass);
+  Alert.alert("response","-> "+ response)
   return async dispatch =>{
-    onPressDispatch(dispatch, id, pass);  
+    onPressDispatch(dispatch, email, pass);  
     }
 
   }
-  const onPressDispatch = (dispatch,id,pass) =>
+  const CheckLogin = (email, pass) =>
   {
-    if(id=="kartik" && pass=="admin")
-    {
+    return fetch('https://reqres.in/api/login')
+    .then((response) => response.json())
+    .then((json)=>{
+      return json;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
+  const onPressDispatch = (dispatch,email,pass) =>
+  {
     dispatch(
       NavigationActions.navigate({
         routeName:PROFILE,
-        // params: {
-        //   passValue: value,
-        // },
       }),
     );
-    }
-    else
-    {
-      Alert.alert("Wrong ..","=="+ id + " - " + pass);
-    }
   }
+  export const onTextChange = (input, type) => {
+    console.log('onTextChange', input + '-' + type);
+    switch (type) {
+      case 'email':
+        return {
+          type: actionTypes.INPUT_USER_EMAIL,
+          input: input,
+        };
+      case 'password':
+        return {
+          type: actionTypes.INPUT_USER_PASSWORD,
+          input: input,
+        };
+      default:
+        break;
+    }
+  };
+  
+
   //return true;    
 
