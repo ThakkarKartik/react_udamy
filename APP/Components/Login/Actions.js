@@ -16,28 +16,38 @@ export const onPress = () => {
   };
 };
 export const LoginPress = (email, pass) => {
-  if (email == "Kt" && pass == "Kt") {
-    return async dispatch => {
-      onPressDispatch(dispatch, email, pass);
-    }
-  }
-  else {
-    Alert.alert("response", "Wrong Email or Password")
-  }
-  //  response = CheckLogin(email, pass);
-  // Alert.alert("response","-> "+ response)
-
-}
-const CheckLogin = (email, pass) => {
-  return fetch('https://reqres.in/api/login')
-    .then((response) => response.json())
-    .then((response) => {
-      return response;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}
+  response = CheckLogin(email, pass);
+  //console.log(response);
+  Alert.alert("response", ""+response)
+};
+function CheckLogin(email, pass) 
+{
+  // try{
+  //   fetch('https://reqres.in/api/login',{
+  //     method:"POST",
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       email: 'eve.holt@reqres.in',
+  //       password: 'cityslicka',
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       return response;
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }
+  // catch(error)
+  // {
+  //     console.error(error);
+  // }
+  return "True";
+};
 const onPressDispatch = (dispatch, email, pass) => {
   dispatch(
     NavigationActions.navigate({
